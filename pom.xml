@@ -65,6 +65,39 @@
         </dependency>
     </dependencies>
 
+    <!-- ============================================================ -->
+    <!-- REPOSITORIOS HTTPS FORZADOS                                   -->
+    <!-- Necesario porque la red de la universidad bloquea HTTP (p80). -->
+    <!-- Estos bloques fuerzan a Maven a usar HTTPS (p443).            -->
+    <!-- ============================================================ -->
+    <repositories>
+        <repository>
+            <id>central-https</id>
+            <name>Maven Central via HTTPS</name>
+            <url>https://repo1.maven.org/maven2/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central-https</id>
+            <name>Maven Central via HTTPS</name>
+            <url>https://repo1.maven.org/maven2/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
     <build>
         <plugins>
             <plugin>
