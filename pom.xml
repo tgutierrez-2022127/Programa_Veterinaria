@@ -29,9 +29,11 @@
 
     <modules>
         <module>auth-usuario</module>
+        <!-- FASE 3: reactivar cuando existan las carpetas de cada microservicio
         <module>mascota-service</module>
         <module>cita-service</module>
         <module>expediente-service</module>
+        -->
     </modules>
 
     <dependencies>
