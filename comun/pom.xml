@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+        Modulo LIBRERIA. Lo usan los 4 microservicios para no repetir:
+        - Seguridad / JWT / filtros
+        - Manejo de excepciones global
+        - Utilidades de autenticacion (usuario autenticado)
+        Este modulo NO se empaqueta como ejecutable (no declara spring-boot-maven-plugin).
+    -->
+    <parent>
+        <groupId>com.veterinaria</groupId>
+        <artifactId>programa-veterinaria</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>comun</artifactId>
+    <name>comun</name>
+    <description>Libreria compartida: seguridad JWT, excepciones y utilidades</description>
+
+    <dependencies>
+        <!-- Spring Web: necesitamos HttpServletResponse, filtros, etc. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Spring Security: filtros, SecurityFilterChain, @PreAuthorize -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
