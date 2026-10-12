@@ -24,14 +24,18 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jjwt.version>0.12.5</jjwt.version>
+        <jjwt.version>0.12.6</jjwt.version>
+        <lombok.version>1.18.34</lombok.version>
+        <postgresql.version>42.7.4</postgresql.version>
     </properties>
 
     <modules>
+        <module>comun</module>
         <module>auth-usuario</module>
         <module>mascota-service</module>
         <module>cita-service</module>
         <module>expediente-service</module>
+        <module>api-gateway</module>
     </modules>
 
     <dependencies>
@@ -98,21 +102,28 @@
         </pluginRepository>
     </pluginRepositories>
 
+    <!--
+        El plugin spring-boot-maven-plugin se declara en pluginManagement para que
+        SOLO lo hereden/usen los modulos que son aplicaciones ejecutables.
+        El modulo "comun" es una libreria y NO debe reempaquetarse como jar ejecutable.
+    -->
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <configuration>
+                        <excludes>
+                            <exclude>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                            </exclude>
+                        </excludes>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
 </project>
